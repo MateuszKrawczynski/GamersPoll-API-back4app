@@ -10,6 +10,10 @@ let app = express();
 app.use(cors());
 
 app.listen(6857, ()=>{
+    db.run("CREATE TABLE main (platform,votes)");
+    db.run("INSERT INTO main VALUES (Xbox,0)");
+    db.run("INSERT INTO main VALUES (Playstation,0)");
+    db.run("INSERT INTO main VALUES (PC,0)");
     console.log("API running on 6857");
 });
 
