@@ -13,12 +13,6 @@ app.listen(6857, ()=>{
     console.log("API running on 6857");
 });
 
-db.serialize(() => {
-    db.run("CREATE TABLE IF NOT EXISTS main (platform TEXT PRIMARY KEY, votes INTEGER)");
-    db.run("INSERT OR IGNORE INTO main VALUES ('Xbox', 0)");
-    db.run("INSERT OR IGNORE INTO main VALUES ('Playstation', 0)");
-    db.run("INSERT OR IGNORE INTO main VALUES ('PC', 0)");
-});
 
 app.get("/get/xbox",(req,res) => {
     db.all("SELECT * FROM main WHERE platform=?",["Xbox"],(err,rows) => {
