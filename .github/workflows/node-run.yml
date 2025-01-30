@@ -1,0 +1,23 @@
+name: Run Node.js Script
+
+on:
+  workflow_dispatch:  # Allows manual start
+
+jobs:
+  run-node:
+    runs-on: ubuntu-latest  # Free GitHub runner
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # Choose Node.js version
+
+      - name: Install express
+        run: npm install  express
+      - name: Install sqlite
+        run: npm install sqlite3
+      - name: deploy
+        run: node app 
