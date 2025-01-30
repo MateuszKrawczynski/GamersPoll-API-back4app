@@ -15,9 +15,8 @@ jobs:
         with:
           node-version: 18  # Choose Node.js version
 
-      - name: Install express
-        run: npm install  express
-      - name: Install sqlite
-        run: npm install sqlite3
-      - name: deploy
-        run: node app 
+      - name: Install Dependencies
+        run: npm install  # If you have a package.json
+
+      - name: Run Node.js Script
+        run: node script.js
